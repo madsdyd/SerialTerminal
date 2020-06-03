@@ -62,6 +62,7 @@ namespace maschinendeck {
       bool firstRun;
       String message;
 
+    public:
       #ifndef ST_FLAG_NOHELP
       void printCommands() {
         for (uint8_t i = 0; i < this->size_; i++) {
@@ -73,7 +74,6 @@ namespace maschinendeck {
       }
       #endif
 
-    public:
       SerialTerminal(long baudrate = 0) : size_(0), firstRun(true), message("") {
         #if not defined ST_FLAG_NOBUILTIN && defined E2END
             this->add("eeprom", &printEEPROM, "prints the contents of EEPROM");
